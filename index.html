@@ -55,7 +55,72 @@
     </main>
 
     <footer>
-        <p>&copy; B1uePr1nter Project</p>
+       <a href="#" style="display: inline-block; padding: 10px 20px; font-size: 16px; color: white; background-color: #007BFF; text-decoration: none; border-radius: 5px; font-family: sans-serif;" onclick="
+  /* aタグのデフォルトの挙動（ページ遷移）をキャンセル */
+  event.preventDefault();
+
+  /* 1. ファイル構造のテンプレートを複数用意しておく */
+  const projectTemplates = [
+    `
+# --- Webフロントエンドプロジェクト ---
+my-webapp/
+├── public/
+│   └── index.html      // ここがアプリの起点
+├── src/
+│   ├── components/
+│   │   ├── Header.js   // ヘッダーコンポーネント
+│   │   └── Button.js   // 汎用的なボタン
+│   ├── assets/
+│   │   └── logo.svg    # サイトのロゴ
+│   └── App.js          // アプリケーション本体
+└── package.json        // プロジェクトの依存関係リスト
+`,
+    `
+# --- Pythonデータ分析プロジェクト ---
+data-analysis-project/
+├── data/
+│   ├── raw/
+│   │   └── sales_data.csv    // 加工前の生データ
+│   └── processed/
+│       └── cleaned_data.csv  # 前処理済みのデータ
+├── notebooks/
+│   └── 01_data_exploration.ipynb // データ探索用のJupyter Notebook
+├── scripts/
+│   └── data_cleaner.py     # データ前処理を実行するスクリプト
+└── README.md                 // このプロジェクトについての説明
+`,
+    `
+# --- Node.jsバックエンドプロジェクト ---
+my-api-server/
+├── src/
+│   ├── controllers/
+│   │   └── userController.js // ユーザー関連のロジック
+│   ├── routes/
+│   │   └── index.js          # APIのルーティング設定
+│   └── server.js             // サーバーの起動ファイル
+├── .env                      // 環境変数を定義 # gitに含めないこと
+└── package.json              // npmパッケージ管理ファイル
+`
+  ];
+
+  /* 2. 用意したテンプレートからランダムに1つを選ぶ */
+  const randomIndex = Math.floor(Math.random() * projectTemplates.length);
+  const textToCopy = projectTemplates[randomIndex].trim();
+
+  /* 3. 選ばれたテキストをクリップボードにコピーする */
+  navigator.clipboard.writeText(textToCopy)
+    .then(() => {
+      // 成功したときにアラートを表示
+      alert('プロジェクト構造を自動生成し、クリップボードにコピーしました！');
+    })
+    .catch(err => {
+      // 失敗した場合はコンソールにエラーを表示
+      console.error('コピーに失敗しました: ', err);
+      alert('クリップボードへのコピーに失敗しました。');
+    });
+">
+  プロジェクト構造を自動生成してコピー
+</a>
     </footer>
 
     <script src="js/parser.js"></script>
@@ -64,4 +129,5 @@
     <script src="js/main.js" ></script>
 
 </body>
+
 </html>
