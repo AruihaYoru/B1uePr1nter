@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B1uePr1nter - Project Scaffolder</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>B1uePr1nter</h1>
+        <p>Visually design project structures and generate scaffold scripts.</p>
+    </header>
+
+    <main class="container">
+
+        <section id="workspace-input" class="workspace">
+            <h2>1. Input Structure</h2>
+            <p>Paste your file structure text here.</p>
+            <textarea id="structure-input" rows="20" placeholder="ProjectName/
+├── css/
+│   └── style.css
+└── js/
+    └── main.js"></textarea>
+            <button id="parse-button">Load to Editor</button>
+        </section>
+
+        <!-- ワークスペース2: 編集エリア -->
+        <section id="workspace-editor" class="workspace">
+            <h2>2. Edit Structure (Visual)</h2>
+            <div class="editor-controls">
+            </div>
+            <div id="visual-tree-container">
+                <p><i>Your project structure will appear here.</i></p>
+            </div>
+        </section>
+
+        <!-- ワークスペース3: 出力エリア -->
+        <section id="workspace-output" class="workspace">
+            <h2>3. Generate Script</h2>
+            <div class="generator-controls">
+                <label for="script-type-select">Script Type:</label>
+                <select id="script-type-select">
+                    <option value="python">Python (.py)</option>
+                    <option value="batch">Windows Batch (.bat)</option>
+                    <option value="powershell">PowerShell (.ps1)</option>
+                    <option value="shell">Shell Script (.sh)</option>
+                    <option value="nodejs">Node.js (.js)</option>
+                </select>
+            </div>
+            <textarea id="generated-script" readonly rows="20" placeholder="Generated script will appear here..."></textarea>
+            <button id="copy-script-button">Copy to Clipboard</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; B1uePr1nter Project</p>
+    </footer>
+
+    <script src="js/parser.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/generator.js"></script>
+    <script src="js/main.js" ></script>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+/* --- Global Styles & Variables --- */
+:root {
+    --bg-color: #f4f7f9;
+    --text-color: #333;
+    --primary-color: #007bff;
+    --primary-text-color: #fff;
+    --card-bg-color: #fff;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Header & Footer --- */
+header, footer {
+    text-align: center;
+    padding: 1rem 2rem;
+}
+
+header {
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--card-bg-color);
+}
+
+header h1 {
+    margin: 0;
+    color: var(--primary-color);
+}
+
+header p {
+    margin: 0.25rem 0 0;
+    color: #666;
+}
+
+footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* --- Main Layout --- */
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line on small screens */
+    gap: 1.5rem;
+    padding: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- Workspace Styles --- */
+.workspace {
+    flex: 1; /* Each workspace takes up equal space */
+    min-width: 300px; /* Prevent workspaces from getting too narrow */
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.workspace h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+/* --- UI Element Styles --- */
+textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: 'Menlo', 'Consolas', monospace;
+    font-size: 0.95rem;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+textarea {
+    flex-grow: 1; /* Make textareas fill available vertical space */
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    color: var(--primary-text-color);
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#copy-script-button {
+    background-color: #28a745; /* Green for copy button */
+}
+
+#copy-script-button:hover {
+    background-color: #218838;
+}
+
+.generator-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#visual-tree-container {
+    flex-grow: 1;
+    border: 1px dashed var(--border-color);
+    border-radius: 4px;
+    padding: 1rem;
+    overflow-y: auto;
+    background-color: #fafafa;
+}
+
+#visual-tree-container i {
+    color: #888;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+}
