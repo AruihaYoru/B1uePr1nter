@@ -25,7 +25,7 @@ function generateScript(treeData, scriptType) {
 
 // サーバー起動コマンドの内容
 const serverBatContent = 'python -m http.server 8000';
-const serverShContent = 'python3 -m http.server 8000';
+const gitignoreContent = 'server.bat';
 
 
 // --- Python スクリプトジェネレーター (修正) ---
@@ -42,7 +42,7 @@ function generatePythonScript(root) {
     // server.batの作成処理を追加
     lines.push(`# Create server.bat`);
     lines.push(`(root_dir / "server.bat").write_text("${serverBatContent}", encoding='utf-8')`);
-    lines.push(`(root_dir / "server.sh").write_text("${serverShContent}", encoding='utf-8')`);
+    lines.push(`(root_dir / ".gitignore").write_text("${gitignoreContent}", encoding='utf-8')`);
     lines.push('');
 
     function buildPy(node, path) {
@@ -140,4 +140,5 @@ function generateShellScript(root) {
 
 // 他のジェネレーター（PowerShell, Node.js）も同様に追加可能
 function generatePowerShellScript(root) { return "PowerShell script generation is not implemented yet."; }
+
 function generateNodeScript(root) { return "Node.js script generation is not implemented yet."; }
